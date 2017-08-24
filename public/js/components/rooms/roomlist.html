@@ -1,0 +1,11 @@
+<table class="table table-bordered table-hover">
+	<thead></thead>
+	<tbody data-bind="foreach: rooms">
+		<tr data-bind="css: { active: $component.activeRoom() == $data}, click: $component.selectRoom">
+			<td><span data-bind="text: name"></span></td>
+		</tr>
+	</tbody>
+</table>
+<!-- 
+<pre data-bind="text: ko.toJSON($component, null, 2)"></pre>
+ -->

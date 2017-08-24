@@ -1,0 +1,26 @@
+<h1>Rooms</h1>
+
+<div class="row">
+	<div class="col-sm-4 col-xs-12">
+		<form class="form-horizontal" data-bind="submit: createRoom">
+			<div class="form-group">
+				<label>Room Name</label> <input class="form-control" type="text"
+					data-bind="textInput: name" />
+			</div>
+
+			<button class="btn btn-default" type="submit">Create</button>
+
+			<roomlist params="activeRoom:activeRoom"></roomlist>
+		</form>
+	</div>
+	
+	<div class="col-sm-8 col-xs-12">
+		<roomeditor params="room: activeRoom"></roomeditor>
+	</div>
+
+</div>
+
+<!-- 
+<h5>rooms</h5>
+<pre data-bind="text: ko.toJSON($component, null, 2)"></pre>
+ -->

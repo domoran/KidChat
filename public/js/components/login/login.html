@@ -1,0 +1,28 @@
+<form class="form-horizontal container" data-bind="submit: doLogin">
+	<div class="form-group">
+		<label>
+			<strong>Register New User</strong>
+			<input type="checkbox" data-bind="checked: register"/>
+		</label> 
+	</div>
+	
+	<div class="form-group">
+		<label>Email address</label> 
+		<input type="email" class="form-control" placeholder="Email" data-bind="textInput: username"/>
+	</div>
+	
+	<div class="form-group">
+		<label>Password</label> 
+		<input type="password" class="form-control"	placeholder="Password" data-bind="textInput: password"/>
+	</div>
+	
+	<div class="form-group" data-bind="if: register">
+		<label>Repeat Password</label> 
+		<input type="password" class="form-control"	placeholder="Password" data-bind="textInput: repeat_password"/>
+	</div>
+	
+	<button type="submit" class="btn btn-default" data-bind="attr: { disabled: !valid()}, click: doLogin">Submit</button>
+</form>
+<!-- 
+<pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+ -->

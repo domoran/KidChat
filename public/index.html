@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+<title>Feathers Chat</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+
+<script data-main="config" src="/js/require.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+			<login-nav params="currentUser: currentUser" ></login-nav>
+			
+			<ul class="nav navbar-nav">
+				<!-- ko foreach: pages -->
+					<li data-bind="if: $root.showPage(name)"><a href="#" data-bind="click:function(){$root.currentPage(name);},text:title">Rooms</a></li>
+				<!-- /ko -->
+			</ul>
+	</nav>
+	
+	<div class="container">
+		<flash params="message:message, time: 3000"></flash>
+	</div>
+	
+	<div class="container">
+		<!-- ko if: currentPage() && showPage(currentPage()) -->
+			<div data-bind="component: { name: currentPage, params: {currentUser:currentUser} }"></div>
+		<!-- /ko -->
+	</div>
+	
+	<pre data-bind="text: ko.toJSON($root,null,2)"></pre>
+
+</body>
+</html>

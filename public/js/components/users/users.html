@@ -1,0 +1,35 @@
+<h1>Users</h1>
+
+<div class="row">
+	<div class="col-sm-4 col-xs-12">
+
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Role</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: users">
+				<tr
+					data-bind="css:{active:selected}, click: $component.clickUser">
+					<td data-bind="text: email"></td>
+					<td data-bind="text: role"></td>
+					<td>
+						<button type="button" class="close" aria-label="Close"
+							data-bind="if: $component.currentUser().role == 'admin', click: $component.deleteUser">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+<h5>users</h5>
+<pre data-bind="text: ko.toJSON($component, null, 2)"></pre>
+<!-- 
+ -->

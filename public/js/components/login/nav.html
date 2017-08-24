@@ -1,0 +1,22 @@
+	<!-- ko if: !currentUser() -->
+		<button type="button" class="btn btn-default navbar-btn dropdown-toggle navbar-right"
+			data-toggle="dropdown">Sign in</button>
+		
+		<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<div class="container">
+				<login-form params="currentUser: currentUser, ready: ready, message: message"></login-form>
+			</div>
+		</div>
+	<!-- /ko -->
+
+	<!-- ko if: currentUser()-->
+		<button type="button" class="btn btn-default navbar-btn navbar-right" 
+				data-bind="click: logout">Sign out</button>
+		<span class="navbar-text navbar-right">&nbsp;</span> 
+		<span class="navbar-text navbar-right" data-bind="text: currentUser().email"></span>
+		<span class="navbar-text navbar-right">Hello, </span> 
+	<!-- /ko -->
+	
+<!--
+<pre data-bind="text: ko.toJSON($component, null, 2)"></pre>
+-->
